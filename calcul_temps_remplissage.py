@@ -97,6 +97,7 @@ else:
 
     st.metric(
         label="Fin de remplissage estimée",
-        value=f"{fin.strftime('%d/%m/%Y %H:%M:%S')}"
+        value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
