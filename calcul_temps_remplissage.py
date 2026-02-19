@@ -51,7 +51,7 @@ with col_logo:
 
 with col_title:
     st.markdown(
-        "<span style='font-size:30px;'>**Temps de remplissage Silos Boues**</span>",
+        "<span style='font-size:34px;'>**Temps de remplissage Silos Boues**</span>",
         unsafe_allow_html=True
     )
     st.markdown(
@@ -108,6 +108,7 @@ else:
         value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
 
 
 
