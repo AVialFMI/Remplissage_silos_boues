@@ -1,12 +1,17 @@
-# AV le 19/02/2026
-# Petite interface de calcul du temps de remplissage des silos a boues. 
-# Développé pour FURANIA, mais adaptable à d'autres sites.
-# Utilisateur doit renseigner :
-#     - Débit de boues entrant (T/h)
-#     - Débit de boues sortant (T/h)
-# La densité de la boue est supposée constante et égale à 1 T/m³ (1000 kg/m³).
-# Le résultat affiché est le temps de remplissage estimé du silo, en heures et minutes.
-# Plus la date et heure de fin du remplissage . 
+# ==========================================================
+# APPLICATION : Remplissage Silo Boues
+# Auteur : AV (FMI Process)
+# Date : 19/02/2025
+#
+# OBJECTIF :
+# Permettre aux exploitants de savoir quand le silo de boues
+# sera rempli. 
+#
+# UTILISATION :
+# Outil destiné aux sites d’incinération.
+# Développé avec Streamlit pour mise à disposition web
+# via GitHub / Streamlit Cloud.
+# ==========================================================
 
 import streamlit as st
 from datetime import datetime, timedelta
@@ -45,7 +50,10 @@ with col_logo:
     st.image("logo.png", width=120)
 
 with col_title:
-    st.markdown("Temps de remplissage Silos Boues", unsafe_allow_html=True)
+    st.markdown(
+        "<span style='font-size:24 px';
+        Temps de remplissage Silos Boues", unsafe_allow_html=True
+    )
     st.markdown(
         "<span style='font-size:14px;'>Application interne – FMI Process</span>",
         unsafe_allow_html=True
@@ -100,4 +108,5 @@ else:
         value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
 
