@@ -67,7 +67,10 @@ st.markdown(
 
 st.divider()
 
-# --- Entrées utilisateur ---
+# ----------------------------------------------------------
+# DONNEES UTILISATEURS
+# ----------------------------------------------------------
+
 debit_entrant = st.number_input(
     "Entrez le débit entrant (t/h) :",
     min_value=0.0,
@@ -79,6 +82,10 @@ debit_sortant = st.number_input(
     min_value=0.0,
     value=1.0,
     step=0.1)
+
+# ----------------------------------------------------------
+# CALCUL TEMPS RESTANT ET FIN DU REMPLISSAGE
+# ----------------------------------------------------------
 
 temps, masse = calcul_remplissage(debit_entrant, debit_sortant)
 
@@ -96,6 +103,10 @@ else:
     minutes = int((temps - heures) * 60)
     st.divider()
 
+# ----------------------------------------------------------
+# AFFICHAGE DES RESULTATS
+# ---------------------------------------------------------- 
+
     st.subheader("Résultats")
 
     st.metric(
@@ -108,6 +119,7 @@ else:
         value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
 
 
 
