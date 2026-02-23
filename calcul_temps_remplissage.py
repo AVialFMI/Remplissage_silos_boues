@@ -19,16 +19,21 @@ from datetime import datetime, timedelta
 # ------------------------------------------
 # FONCTION DE CALCUL DU TEMPS DE REMPLISSAGE
 # ------------------------------------------
-def calcul_remplissage(debit_entrant_t_h, debit_sortant_t_h):
-    volume_m3 = 150
+def calcul_remplissage(volume_actuel, debit_entrant_t_h, debit_sortant_t_h):
+    volume_max = 150
     densite_t_m3 = 0.9
 
-    masse_totale = volume_m3 * densite_t_m3  # 135 tonnes
     debit_net = debit_entrant_t_h - debit_sortant_t_h
 
     if debit_net <= 0:
         return None, None
 
+    volume_restant = volume_max - volume_actuel
+    if volume_restant <= 0:
+        return "Réservoir déjà plein"
+
+    masse_totale = volume_restant * densite_t_m3  
+    
     temps_heures = masse_totale / debit_net
     return temps_heures, masse_totale
 
@@ -70,6 +75,11 @@ st.divider()
 # ----------------------------------------------------------
 # DONNEES UTILISATEURS
 # ----------------------------------------------------------
+volume_actuel = st.number_input(
+    "Entrez le volume de boues présent dans le silo (m³) :",
+    min_value=0.0,
+    value=150,
+    step=0.1)
 
 debit_entrant = st.number_input(
     "Entrez le débit entrant (t/h) :",
@@ -119,6 +129,7 @@ else:
         value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
 
 
 
