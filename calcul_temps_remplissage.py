@@ -78,7 +78,7 @@ st.divider()
 volume_actuel = st.number_input(
     "Entrez le volume de boues présent dans le silo (m³) :",
     min_value=0.0,
-    value=150,
+    value=150.0,
     step=0.1)
 
 debit_entrant = st.number_input(
@@ -129,6 +129,7 @@ else:
         value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
 
 
 
