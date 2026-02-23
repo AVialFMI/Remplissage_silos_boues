@@ -97,7 +97,7 @@ debit_sortant = st.number_input(
 # CALCUL TEMPS RESTANT ET FIN DU REMPLISSAGE
 # ----------------------------------------------------------
 
-temps, masse = calcul_remplissage(debit_entrant, debit_sortant)
+temps, masse = calcul_remplissage(volume_actuel, debit_entrant, debit_sortant)
 
 if temps is None:
     st.error("Le silo ne se remplira pas (débit net <= 0).")
@@ -129,6 +129,7 @@ else:
         value=f"{fin.strftime('%d/%m/%Y %H:%M')}"
     )
     
+
 
 
 
